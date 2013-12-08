@@ -1,4 +1,4 @@
 forced-alignment
 ================
 
-Tools for force alignment
+Tools for forced alignment
