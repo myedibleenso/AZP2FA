@@ -5,6 +5,7 @@ import cPickle as pickle
 import collections
 import csv
 import re
+import sys
 
 
 class Pronunciation(object):
@@ -267,6 +268,17 @@ class Pronunciation(object):
 				writer.writerow([key, value])
 
 
+if __name__ == "__main__":
+	print "Initializing dictionary..."
+	poo = Pronunciation()
+	print "Examining file...\n"
+	filename = None
+	try:
+		filename = sys.argv[1]
+	except:
+		if not filename:
+			filename = 'harvard_sentences_sets_1-3.txt'
+			poo.file_stats(filename)
 
 
 
