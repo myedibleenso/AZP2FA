@@ -2,12 +2,12 @@
 	\hline
 	\textbf{total sentences} & 30 \\
 	\hline
-	\textbf{unique syllables} & 47 \\
+	\textbf{unique phonemes} & 47 \\
 	\hline
 	\textbf{words per sentence} & 8.0 \\
 	\hline
 	\textbf{syllables per sentence} & 25.1 \\
 	\hline
-	\textbf{syllable per word} & 3.2 \\
+	\textbf{syllables per word} & 3.2 \\
 	\hline
 \end{tabular}

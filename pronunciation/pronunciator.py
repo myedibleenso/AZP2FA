@@ -239,7 +239,7 @@ class Pronunciation(object):
 			print "Unique syllables:\t{0}".format(unique_syllables)
 
 		overall_stats = collections.OrderedDict([("total sentences",len(stats)),
-												 ("unique syllables", len(unique_syllables)),
+												 ("unique phonemes", len(unique_syllables)),
 												 ("words per sentence", ave_words),
 												 ("syllables per sentence", ave_syllables),
 												 ("syllables per word", ave_syllables_per_word)])
