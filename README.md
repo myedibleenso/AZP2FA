@@ -6,29 +6,29 @@ Tools for forced alignment. Fork of [**p2fa**](http://www.ling.upenn.edu/phoneti
 <br>
 What's here
 -----------
-1. `create_transcripts.py`
+1. [`create_transcripts.py`](https://github.com/myedibleenso/forced-alignment/blob/master/transcripts/create_transcripts.py)
 	
-	an original [script](https://github.com/myedibleenso/forced-alignment/blob/master/transcripts/create_transcripts.py) for automatic generation of **htk**-compatible transcripts from some set of source sentences
+	An original script for automatic generation of **htk**-compatible transcripts from some set of source sentences
 
-2. `pronunciator.py`
+2. [`pronunciator.py`](https://github.com/myedibleenso/forced-alignment/blob/master/pronunciation/pronunciator.py)
 	
-	[Pronunciation estimator](https://github.com/myedibleenso/forced-alignment/blob/master/pronunciation/pronunciator.py) for unknown utterances (requires a pronunciation dictionary). &nbsp;A copy of the [CMU pronouncing dictionary](http://www.speech.cs.cmu.edu/cgi-bin/cmudict) is provided [here](https://github.com/myedibleenso/forced-alignment/blob/master/pronunciation/cmudict).  This script is able to generate .csv and LaTeX-formatted table of compositional statistics for a specified transcript or set of sentences (i.e. average length, \# syllables, syllables per word, unique phones, etc).<p>
+	Pronunciation estimator for unknown utterances (requires a pronunciation dictionary). &nbsp;A copy of the [CMU pronouncing dictionary](http://www.speech.cs.cmu.edu/cgi-bin/cmudict) is provided [here](https://github.com/myedibleenso/forced-alignment/blob/master/pronunciation/cmudict).  This script is able to generate .csv and LaTeX-formatted table of compositional statistics for a specified transcript or set of sentences (i.e. average length, \# syllables, syllables per word, unique phones, etc).<p>
 
-4. `align.py`
+4. [`align.py`](https://github.com/myedibleenso/forced-alignment/blob/master/p2fa/align.py) 
 
-	Minimally [modified **p2fa**](https://github.com/myedibleenso/forced-alignment/blob/master/p2fa/align.py) that resolves deprecated SoX call<p>
+	Minimally modified **p2fa** that resolves deprecated SoX call<p>
 
-5. `align_batch.py`
+5. [`align_batch.py`](https://github.com/myedibleenso/forced-alignment/blob/master/p2fa/align_batch.py)
 	
-	[Script](https://github.com/myedibleenso/forced-alignment/blob/master/p2fa/align_batch.py) to batch process multiple wav files with minimally modified **p2fa**.
+	Script to batch process multiple wav files with minimally modified **p2fa**.
 
-6. `align_new.py`
+6. [`align_new.py`](https://github.com/myedibleenso/forced-alignment/blob/master/p2fa/align_new.py)
 
-	[Revised p2fa](https://github.com/myedibleenso/forced-alignment/blob/master/p2fa/align_new.py) with several new features
+	Revised **p2fa** with several new features
 
-7. `splice.praat`
+7. [`splice.praat`](https://github.com/myedibleenso/forced-alignment/blob/master/scripts/splice.praat)
 
-	[Praat script](https://github.com/myedibleenso/forced-alignment/blob/master/scripts/splice.praat) for TextGrid-based slicing of wav files.  &nbsp;Credit and thanks given to [Jessamyn Schertz](http://www.u.arizona.edu/~jschertz/index.shtml)<p>
+	Praat script for TextGrid-based slicing of wav files.  &nbsp;Credit and thanks given to [Jessamyn Schertz](http://www.u.arizona.edu/~jschertz/index.shtml)<p>
 <br>  
 
 Setup
