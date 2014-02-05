@@ -4,7 +4,7 @@ forced-alignment
 Tools for forced alignment. Fork of [**p2fa**](http://www.ling.upenn.edu/phonetics/p2fa/). 
 
 <br>
-What's here:
+What's here
 -----------
 1. `create_transcripts.py`
 	
@@ -38,7 +38,7 @@ Install [**htk 3.4**](http://htk.eng.cam.ac.uk/). Careful about this point as v3
 Mac users experiencing problems should look [here](http://speechtechie.wordpress.com/2009/06/12/compiling-htk-3-4-on-mac-os-10-5/).
 
 <br>
-Other Stuff
+Other stuff
 -----------
 
 File naming convention: 
