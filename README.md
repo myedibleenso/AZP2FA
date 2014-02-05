@@ -12,7 +12,7 @@ What's here
 
 2. `pronunciator.py`
 	
-	[Pronunciation estimator](https://github.com/myedibleenso/forced-alignment/blob/master/pronunciation/pronunciator.py) for unknown utterances that requires a pronunciation dictionary. &nbsp;A copy of the [CMU pronouncing dictionary](http://www.speech.cs.cmu.edu/cgi-bin/cmudict) is provided [here](https://github.com/myedibleenso/forced-alignment/blob/master/pronunciation/cmudict).  This script is able to generate .csv and LaTeX-formatted table of compositional statistics for a specified transcript or set of sentences (i.e. average length, \# syllables, syllables per word, unique phones, etc).<p>
+	[Pronunciation estimator](https://github.com/myedibleenso/forced-alignment/blob/master/pronunciation/pronunciator.py) for unknown utterances (requires a pronunciation dictionary). &nbsp;A copy of the [CMU pronouncing dictionary](http://www.speech.cs.cmu.edu/cgi-bin/cmudict) is provided [here](https://github.com/myedibleenso/forced-alignment/blob/master/pronunciation/cmudict).  This script is able to generate .csv and LaTeX-formatted table of compositional statistics for a specified transcript or set of sentences (i.e. average length, \# syllables, syllables per word, unique phones, etc).<p>
 
 4. `align.py`
 
