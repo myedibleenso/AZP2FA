@@ -16,6 +16,8 @@ import getopt
 import wave
 import re
 
+temp_dir = os.path.join(os.getcwd(), "tmp")
+
 def prep_wav(orig_wav, out_wav, sr_override, wave_start, wave_end):
     global sr_models
 	
@@ -211,22 +213,26 @@ def writeTextGrid(outfile, word_alignments) :
 	fw.close()
 
 def prep_working_directory() :
-	os.system("rm -r -f ./tmp")
-	os.system("mkdir ./tmp")
+	os.system("rm -r -f {0}".format(temp_dir))
+	os.system("mkdir {0}".format(temp_dir))
 
 def prep_scp(wavfile) :
-    fw = open('./tmp/codetr.scp', 'w')
+    fw = open(os.path.join(temp_dir, 'codetr.scp'), 'w')
     fw.write(wavfile + ' ./tmp/tmp.plp\n')
     fw.close()
-    fw = open('./tmp/test.scp', 'w')
+    fw = open(os.path.join(temp_dir,'test.scp'), 'w')
     fw.write('./tmp/tmp.plp\n')
     fw.close()
 	
 def create_plp(hcopy_config) :
-	os.system('HCopy -T 1 -C ' + hcopy_config + ' -S ./tmp/codetr.scp')
+	codetr_dir = os.path.join(temp_dir, 'codetr.scp')
+	os.system('/usr/local/bin/HCopy -T 1 -C ' + hcopy_config + ' -S {0}'.format(codetr_dir))
 	
 def viterbi(input_mlf, word_dictionary, output_mlf, phoneset, hmmdir) :
-	os.system('HVite -T 1 -a -m -I ' + input_mlf + ' -H ' + hmmdir + '/macros -H ' + hmmdir + '/hmmdefs  -S ./tmp/test.scp -i ' + output_mlf + ' -p 0.0 -s 5.0 ' + word_dictionary + ' ' + phoneset + ' > ./tmp/aligned.results')
+	codetr_dir = os.path.join(temp_dir, 'codetr.scp')
+	test_scp_dir = os.path.join(temp_dir, 'test.scp')
+	results_dir = os.path.join(temp_dir, 'aligned.results')
+	os.system('/usr/local/bin/HVite -T 1 -a -m -I ' + input_mlf + ' -H ' + hmmdir + '/macros -H ' + hmmdir + '/hmmdefs  -S {0} -i '.format(test_scp_dir) + output_mlf + ' -p 0.0 -s 5.0 ' + word_dictionary + ' ' + phoneset + ' > {0}'.format(results_dir))
 	
 def getopt2(name, opts, default = None) :
 	value = [v for n,v in opts if n==name]
