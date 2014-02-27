@@ -244,7 +244,10 @@ def getopt2(name, opts, default = None) :
 	return value[0]
 
 if __name__ == '__main__':
-	
+	#ensure we run in script's directory
+	abspath = os.path.abspath(__file__)
+	dname = os.path.dirname(abspath)
+	os.chdir(dname)
 	cwd_msg = "cwd: {0}".format(os.getcwd())
 	logger(cwd_msg)
 
