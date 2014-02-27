@@ -9,7 +9,7 @@ called by process.php
 """
 
 align_script = os.path.expanduser("~/github/forced-alignment/forced-alignment/p2fa/align.py")
-log_file = os.path.expand_user("~/websites/poop/uploads/debug_log")
+log_file = os.path.expanduser("~/websites/poop/uploads/debug_log")
 
 def logger(message, log_file=log_file):
 	"""
