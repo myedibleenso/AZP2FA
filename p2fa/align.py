@@ -282,9 +282,9 @@ if __name__ == '__main__':
 	if sr_override != None and sr_models != None and not sr_override in sr_models :
 		raise ValueError, "invalid sample rate: not an acoustic model available"
 		
-	word_dictionary = "./tmp/dict"
-	input_mlf = './tmp/tmp.mlf'
-	output_mlf = './tmp/aligned.mlf'
+	word_dictionary = os.path.join(os.getcwd(), "tmp/dict")
+	input_mlf = os.path.join(os.getcwd(), "tmp/tmp.mlf")
+	output_mlf = os.path.join(os.getcwd(), "tmp/aligned.mlf")
 	
 	# create working directory
 	prep_working_directory()
