@@ -1,4 +1,4 @@
-import suprocess as sp
+import subprocess as sp
 import os
 import sys
 import shlex
@@ -8,7 +8,7 @@ import shlex
 called by process.php
 """
 
-align_script = "/Users/gus/github/forced-alignment/forced-alignment/p2fa/align.py"
+align_script = os.path.expanduser("~/github/forced-alignment/forced-alignment/p2fa/align.py")
 
 if __name__ == '__main__':
 	if len(sys.argv) != 4:
