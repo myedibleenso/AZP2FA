@@ -23,7 +23,7 @@ def logger(message, log_file=log_file):
 	logger
 	"""
 	with open(log_file, 'a') as lg:
-		write("{0}\n".format(message))
+		lg.write("{0}\n".format(message))
 
 def prep_wav(orig_wav, out_wav, sr_override, wave_start, wave_end):
     global sr_models
@@ -245,6 +245,9 @@ def getopt2(name, opts, default = None) :
 
 if __name__ == '__main__':
 	
+	cwd_msg = "cwd: {0}."format(os.getcwd())
+	logger(cwd_msg)
+
 	try:
 		opts, args = getopt.getopt(sys.argv[1:], "r:s:e:", ["model="])
 		

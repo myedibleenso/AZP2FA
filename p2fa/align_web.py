@@ -16,7 +16,7 @@ def logger(message, log_file=log_file):
 	logger
 	"""
 	with open(log_file, 'a') as lg:
-		write("{0}\n".format(message))
+		lg.write("{0}\n".format(message))
 
 if __name__ == '__main__':
 	open(log_file, 'w').close() #empty log
