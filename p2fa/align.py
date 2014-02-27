@@ -16,6 +16,15 @@ import getopt
 import wave
 import re
 
+log_file = os.path.expanduser("~/websites/poop/uploads/debug_log")
+
+def logger(message, log_file=log_file):
+	"""
+	logger
+	"""
+	with open(log_file, 'a') as lg:
+		write("{0}\n".format(message))
+
 def prep_wav(orig_wav, out_wav, sr_override, wave_start, wave_end):
     global sr_models
 	
