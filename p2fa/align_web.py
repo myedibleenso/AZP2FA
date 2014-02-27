@@ -1,4 +1,4 @@
-import suprocess as sp
+import subprocess as sp
 import os
 import sys
 import shlex
