@@ -245,7 +245,7 @@ def getopt2(name, opts, default = None) :
 
 if __name__ == '__main__':
 	
-	cwd_msg = "cwd: {0}."format(os.getcwd())
+	cwd_msg = "cwd: {0}".format(os.getcwd())
 	logger(cwd_msg)
 
 	try:
