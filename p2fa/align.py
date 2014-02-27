@@ -236,6 +236,12 @@ def getopt2(name, opts, default = None) :
 
 if __name__ == '__main__':
 	
+	#change to script's directory
+	abspath = os.path.abspath(__file__)
+	dname = os.path.dirname(abspath)
+	os.chdir(dname)
+	print "Alignment script location: {0}".format(os.getcwd())
+	
 	try:
 		opts, args = getopt.getopt(sys.argv[1:], "r:s:e:", ["model="])
 		
