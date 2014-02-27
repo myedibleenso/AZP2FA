@@ -246,6 +246,8 @@ if __name__ == '__main__':
 	abspath = os.path.abspath(__file__)
 	dname = os.path.dirname(abspath)
 	os.chdir(dname)
+	temp_dir = os.path.join(os.getcwd(), "tmp")
+	
 	print "Alignment script location: {0}".format(os.getcwd())
 	
 	try:
