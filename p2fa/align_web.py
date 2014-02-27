@@ -9,17 +9,17 @@ called by process.php
 """
 
 align_script = "/Users/gus/github/forced-alignment/forced-alignment/p2fa/align.py"
+log_file = os.path.join(os.expanduser("~"), "aligner_log")
 
 if __name__ == '__main__':
 	if len(sys.argv) != 4:
-		print "wrong number of arguments provided.  Exiting..."
+		print "Wrong number of arguments provided.  Exiting..."
 		sys.exit()
 
 	wav_file_src = sys.argv[1]
 	transcript_src = sys.argv[2]
 	textgrid_dst = sys.argv[3]
 	
-	log_file = "~/Desktop/aligner_log"
 	with open(log_file, 'a') as f:
 		f.write("wav file: {0}\n".format(wav_file_src))
 		f.write("transcript: {0}\n".format(transcript_src))
