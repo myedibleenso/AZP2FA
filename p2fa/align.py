@@ -296,7 +296,7 @@ if __name__ == '__main__':
 		os.system("cat " + mypath + "/dict > " + word_dictionary)
 	
 	#prepare wavefile: do a resampling if necessary
-	tmpwav = "./tmp/sound.wav"
+	tmpwav = os.path.join(os.getcwd(), "tmp/sound.wav")
 	SR = prep_wav(wavfile, tmpwav, sr_override, wave_start, wave_end)
 	
 	if hmmsubdir == "FROM-SR" :
