@@ -19,11 +19,20 @@ if __name__ == '__main__':
 	transcript_src = sys.argv[2]
 	textgrid_dst = sys.argv[3]
 	
+	log_file = "~/Desktop/aligner_log"
+	with open(log_file, 'a') as f:
+		f.write("wav file: {0}\n".format(wav_file_src))
+		f.write("transcript: {0}\n".format(transcript_src))
+		f.write("textgrid: {0}\n".format(textgrid_dst))
 	#print "\naligning \'{0}\'...({1} out of {2})".format(f, completed, total)
 	align_command = "python {align_script} {wav_file} {transcript_file} {textgrid_dst}".format(align_script=align_script, wav_file=wav_file_src, transcript_file=transcript_src, textgrid_dst=textgrid_dst)
 	align_command = shlex.split(align_command)
 	align_process = sp.Popen(align_command, stdout=sp.PIPE, stderr=sp.PIPE)
 	o, e = align_process.communicate()
+
+	with open(log_file, 'a') as f:
+		f.write("Output:\n {0}\n".format(o))
+		f.write("Error:\n {0}\n\n\n".format(e))
 	print textgrid_dst
 
 
