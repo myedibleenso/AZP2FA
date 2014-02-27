@@ -9,7 +9,7 @@ called by process.php
 """
 
 align_script = "/Users/gus/github/forced-alignment/forced-alignment/p2fa/align.py"
-log_file = os.path.join("Users", "gus", "websites", "poop", "uploads", "aligner_log")
+log_file = "/Users/gus/websites/poop/uploads/aligner_log"
 
 if __name__ == '__main__':
 	if len(sys.argv) != 4:
