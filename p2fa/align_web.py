@@ -37,7 +37,7 @@ if __name__ == '__main__':
 		logger("output: {0}".format(o))
 	if e:
 		logger("error: {0}".format(e))
-	textgrid_dst = textgrid_dst.split("poop")[-1]
+	#textgrid_dst = textgrid_dst.split("poop")[-1]
 	print textgrid_dst
 
 
