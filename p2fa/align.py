@@ -245,7 +245,8 @@ def getopt2(name, opts, default = None) :
 
 if __name__ == '__main__':
 	#ensure we run in script's directory
-	os.environ.get('PATH')
+	#set system path
+	os.environ["PATH"] = "/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/texbin"
 	logger("sytem path: {0}".format(os.environ.get('PATH')))
 	abspath = os.path.abspath(__file__)
 	dname = os.path.dirname(abspath)
