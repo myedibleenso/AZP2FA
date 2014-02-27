@@ -245,6 +245,8 @@ def getopt2(name, opts, default = None) :
 
 if __name__ == '__main__':
 	#ensure we run in script's directory
+	os.environ.get('PATH')
+	logger("sytem path: {0}".format(os.environ.get('PATH')))
 	abspath = os.path.abspath(__file__)
 	dname = os.path.dirname(abspath)
 	os.chdir(dname)
