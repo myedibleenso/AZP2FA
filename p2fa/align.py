@@ -16,8 +16,6 @@ import getopt
 import wave
 import re
 
-temp_dir = os.path.join(os.getcwd(), "tmp")
-
 def prep_wav(orig_wav, out_wav, sr_override, wave_start, wave_end):
     global sr_models
 	
@@ -213,26 +211,22 @@ def writeTextGrid(outfile, word_alignments) :
 	fw.close()
 
 def prep_working_directory() :
-	os.system("rm -r -f {0}".format(temp_dir))
-	os.system("mkdir {0}".format(temp_dir))
+	os.system("rm -r -f ./tmp")
+	os.system("mkdir ./tmp")
 
 def prep_scp(wavfile) :
-    fw = open(os.path.join(temp_dir, 'codetr.scp'), 'w')
+    fw = open('./tmp/codetr.scp', 'w')
     fw.write(wavfile + ' ./tmp/tmp.plp\n')
     fw.close()
-    fw = open(os.path.join(temp_dir,'test.scp'), 'w')
+    fw = open('./tmp/test.scp', 'w')
     fw.write('./tmp/tmp.plp\n')
     fw.close()
 	
 def create_plp(hcopy_config) :
-	codetr_dir = os.path.join(temp_dir, 'codetr.scp')
-	os.system('/usr/local/bin/HCopy -T 1 -C ' + hcopy_config + ' -S {0}'.format(codetr_dir))
+	os.system('HCopy -T 1 -C ' + hcopy_config + ' -S ./tmp/codetr.scp')
 	
 def viterbi(input_mlf, word_dictionary, output_mlf, phoneset, hmmdir) :
-	codetr_dir = os.path.join(temp_dir, 'codetr.scp')
-	test_scp_dir = os.path.join(temp_dir, 'test.scp')
-	results_dir = os.path.join(temp_dir, 'aligned.results')
-	os.system('/usr/local/bin/HVite -T 1 -a -m -I ' + input_mlf + ' -H ' + hmmdir + '/macros -H ' + hmmdir + '/hmmdefs  -S {0} -i '.format(test_scp_dir) + output_mlf + ' -p 0.0 -s 5.0 ' + word_dictionary + ' ' + phoneset + ' > {0}'.format(results_dir))
+	os.system('HVite -T 1 -a -m -I ' + input_mlf + ' -H ' + hmmdir + '/macros -H ' + hmmdir + '/hmmdefs  -S ./tmp/test.scp -i ' + output_mlf + ' -p 0.0 -s 5.0 ' + word_dictionary + ' ' + phoneset + ' > ./tmp/aligned.results')
 	
 def getopt2(name, opts, default = None) :
 	value = [v for n,v in opts if n==name]
@@ -241,13 +235,6 @@ def getopt2(name, opts, default = None) :
 	return value[0]
 
 if __name__ == '__main__':
-	
-	#change to script's directory
-	abspath = os.path.abspath(__file__)
-	dname = os.path.dirname(abspath)
-	os.chdir('/Users/gus/github/forced-alignment/forced-alignment/p2fa')
-	temp_dir = os.path.join(os.getcwd(), "tmp")
-	#print "Alignment script location: {0}".format(os.getcwd())
 	
 	try:
 		opts, args = getopt.getopt(sys.argv[1:], "r:s:e:", ["model="])
@@ -289,9 +276,9 @@ if __name__ == '__main__':
 	if sr_override != None and sr_models != None and not sr_override in sr_models :
 		raise ValueError, "invalid sample rate: not an acoustic model available"
 		
-	word_dictionary = os.path.join(os.getcwd(), "tmp/dict")
-	input_mlf = os.path.join(os.getcwd(), "tmp/tmp.mlf")
-	output_mlf = os.path.join(os.getcwd(), "tmp/aligned.mlf")
+	word_dictionary = "./tmp/dict"
+	input_mlf = './tmp/tmp.mlf'
+	output_mlf = './tmp/aligned.mlf'
 	
 	# create working directory
 	prep_working_directory()
@@ -303,7 +290,7 @@ if __name__ == '__main__':
 		os.system("cat " + mypath + "/dict > " + word_dictionary)
 	
 	#prepare wavefile: do a resampling if necessary
-	tmpwav = os.path.join(os.getcwd(), "tmp/sound.wav")
+	tmpwav = "./tmp/sound.wav"
 	SR = prep_wav(wavfile, tmpwav, sr_override, wave_start, wave_end)
 	
 	if hmmsubdir == "FROM-SR" :
