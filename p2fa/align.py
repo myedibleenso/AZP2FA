@@ -266,6 +266,7 @@ if __name__ == '__main__':
 		sr_override = getopt2("-r", opts, None)
 		wave_start = getopt2("-s", opts, "0.0")
 		wave_end = getopt2("-e", opts, None)
+		#add boolean flag for this?
 		surround_token = "sp" #getopt2("-p", opts, 'sp')
 		between_token = "sp" #getopt2("-b", opts, 'sp')
 		
