@@ -33,7 +33,7 @@ def add_noise(f_name):
 if __name__ == '__main__':
 	realpath = os.path.realpath(__file__)
 	dname = os.path.dirname(realpath)
-	align_script = os.path.join(dname, "align_new.py")
+	align_script = os.path.join(dname, "align.py")
 	#align_script = os.path.expanduser("~/github/forced-alignment/AZP2FA/p2fa/align_new.py")
 	
 	#args: wav txt processing_option lang
