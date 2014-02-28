@@ -8,7 +8,6 @@ import shlex
 called by process.php
 """
 
-align_script = os.path.expanduser("~/github/forced-alignment/AZP2FA/p2fa/align.py")
 log_file = os.path.expanduser("~/websites/poop/uploads/debug_log")
 
 def logger(message, log_file=log_file):
@@ -32,6 +31,9 @@ def add_noise(f_name):
 
 
 if __name__ == '__main__':
+	realpath = os.path.realpath(__file__)
+	dname = os.path.dirname(realpath)
+	align_script = os.path.join(dname, "align.py")
 	open(log_file, 'w').close() #empty log
 	if len(sys.argv) < 4:
 		logger("wrong number of arguments provided.  Exiting...")
