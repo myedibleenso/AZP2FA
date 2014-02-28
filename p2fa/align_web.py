@@ -24,6 +24,8 @@ def add_noise(f_name):
 	"""
 	lines = open(f_name, 'r').readlines()
 	processed_lines = ["{line} {{NS}}\n".format(line=l.strip().upper()) for l in lines]
+	logger("Adding noise tags to transcript...")
+	logger("New transcript {0}".format("".join(processed_lines)))
 	with open(f_name, 'w') as ns:
 		for l in processed_lines:
 			ns.write(l)
