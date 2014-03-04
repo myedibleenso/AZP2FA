@@ -219,11 +219,20 @@ def writeTextGrid(outfile, word_alignments) :
 	
 	fw.close()
 
-def prep_working_directory() :
+def prep_working_directory():
+	#make a tmp directory with a unique identifier
+	#use shutil
+	#pass in dir?
 	os.system("rm -r -f ./tmp")
 	os.system("mkdir ./tmp")
 
-def prep_scp(wavfile) :
+def delete_working_directory():
+	#delete working directory
+	#pass in dir?
+	pass
+
+def prep_scp(wavfile):
+	#try changing these to save to working directory
     fw = open('./tmp/codetr.scp', 'w')
     fw.write(wavfile + ' ./tmp/tmp.plp\n')
     fw.close()
@@ -231,10 +240,14 @@ def prep_scp(wavfile) :
     fw.write('./tmp/tmp.plp\n')
     fw.close()
 	
-def create_plp(hcopy_config) :
+def create_plp(hcopy_config):
+	#step 1: change to save to working directory
+	#step 2: use sp.Popen instead
 	os.system('HCopy -T 1 -C ' + hcopy_config + ' -S ./tmp/codetr.scp')
 	
-def viterbi(input_mlf, word_dictionary, output_mlf, phoneset, hmmdir) :
+def viterbi(input_mlf, word_dictionary, output_mlf, phoneset, hmmdir):
+	#step 1: change to save to working directory
+	#step 2: use sp.Popen instead 
 	os.system('HVite -T 1 -a -m -I ' + input_mlf + ' -H ' + hmmdir + '/macros -H ' + hmmdir + '/hmmdefs  -S ./tmp/test.scp -i ' + output_mlf + ' -p 0.0 -s 5.0 ' + word_dictionary + ' ' + phoneset + ' > ./tmp/aligned.results')
 	
 def getopt2(name, opts, default = None) :
@@ -253,7 +266,21 @@ if __name__ == '__main__':
 	os.chdir(dname)
 	cwd_msg = "cwd: {0}".format(os.getcwd())
 	logger(cwd_msg)
-
+	#create working directory with unique identifier
+	#interface to temp dir?
+	#import tempfile
+	#dirpath = tempfile.mkdtemp()
+	#finally clean up with shutil.rmtree
+	#encase it all in main() function
+	#def main():
+    #try:
+    #    execute_app()
+    #finally:
+    #    handle_cleanup()
+    #
+	#if __name__=='__main__':
+	#    main()
+	#
 	try:
 		opts, args = getopt.getopt(sys.argv[1:], "r:s:e:", ["model="])
 		
@@ -276,7 +303,7 @@ if __name__ == '__main__':
 			between_token = None
 		
 		mypath = getopt2("--model", opts, None)
-	except :
+	except:
 		print __doc__
 		(type, value, traceback) = sys.exc_info()
 		print value
