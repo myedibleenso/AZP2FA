@@ -20,6 +20,7 @@ import re
 import tempfile
 import subprocess as sp
 import shutil
+import atexit
 
 rand_prefix = str(randint(1,10000))
 tmp_dir = os.path.join(os.getcwd(), rand_prefix+'tmp')
@@ -41,7 +42,12 @@ hmm_macros = os.path.join(hmmdir, "macros")
 hmm_defs = os.path.join(hmmdir, "hmmdefs")
 
 #better to pass this in?
-log_file = os.path.expanduser("~/websites/poop/uploads/debug2_log")
+log_file = os.path.expanduser("~/websites/poop/uploads/debug_log")
+
+
+def exit_handler():
+	logger("deleting working directory {0}".format(tmp_dir))
+	shutil.rmtree(tmp_dir)
 
 def logger(message, log_file=log_file):
 	"""
@@ -335,6 +341,8 @@ def getopt2(name, opts, default = None) :
 		return default
 	return value[0]
 
+#delete working directory on exit...
+atexit.register(exit_handler)
 if __name__ == '__main__':
 	#ensure we run in script's directory
 	#set system path
@@ -465,7 +473,5 @@ if __name__ == '__main__':
 
 	# output the alignment as a Praat TextGrid
 	writeTextGrid(outfile, readAlignedMLF(output_mlf, SR, float(wave_start)))
-	#clean up...
-	logger("deleting working directory...")
-	shutil.rmtree(tmp_dir)
+	
 
