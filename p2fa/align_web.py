@@ -8,7 +8,7 @@ import shlex
 called by process.php
 """
 
-log_file = os.path.expanduser("~/websites/poop/uploads/debug_log")
+log_file = os.path.expanduser("~/debug_log")
 
 def logger(message, log_file=log_file):
 	"""

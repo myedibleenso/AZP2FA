@@ -42,7 +42,7 @@ hmm_macros = os.path.join(hmmdir, "macros")
 hmm_defs = os.path.join(hmmdir, "hmmdefs")
 
 #better to pass this in?
-log_file = os.path.expanduser("~/websites/poop/uploads/debug_log")
+log_file = os.path.expanduser("~/debug_log")
 
 
 def exit_handler():
